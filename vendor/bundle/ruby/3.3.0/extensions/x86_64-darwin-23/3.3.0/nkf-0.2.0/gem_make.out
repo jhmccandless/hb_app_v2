@@ -1,0 +1,18 @@
+current directory: /Users/jasonmccandless/Documents/js-continuation-practice/hb_app/hb_app_v2/vendor/bundle/ruby/3.3.0/gems/nkf-0.2.0/ext/nkf
+/usr/local/opt/ruby/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/jasonmccandless/Documents/js-continuation-practice/hb_app/hb_app_v2/vendor/bundle/ruby/3.3.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20240716-16133-f2gzt9 sitelibdir\=./.gem.20240716-16133-f2gzt9 clean
+
+current directory: /Users/jasonmccandless/Documents/js-continuation-practice/hb_app/hb_app_v2/vendor/bundle/ruby/3.3.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20240716-16133-f2gzt9 sitelibdir\=./.gem.20240716-16133-f2gzt9
+compiling nkf.c
+linking shared-object nkf.bundle
+
+current directory: /Users/jasonmccandless/Documents/js-continuation-practice/hb_app/hb_app_v2/vendor/bundle/ruby/3.3.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20240716-16133-f2gzt9 sitelibdir\=./.gem.20240716-16133-f2gzt9 install
+/usr/bin/install -c -m 0755 nkf.bundle ./.gem.20240716-16133-f2gzt9
+
+current directory: /Users/jasonmccandless/Documents/js-continuation-practice/hb_app/hb_app_v2/vendor/bundle/ruby/3.3.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20240716-16133-f2gzt9 sitelibdir\=./.gem.20240716-16133-f2gzt9 clean
