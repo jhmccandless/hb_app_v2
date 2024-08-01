@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface TimerState {
   hangTime: string;
@@ -10,16 +10,16 @@ export interface TimerState {
 }
 
 const initialState: TimerState = {
-  hangTime: '7',
-  offTime: '3',
-  restTime: '40',
-  repCount: '6',
-  setCount: '3',
-  delayStartTime: '25',
+  hangTime: "7",
+  offTime: "3",
+  restTime: "40",
+  repCount: "6",
+  setCount: "3",
+  delayStartTime: "4",
 };
 
 export const timerSlice = createSlice({
-  name: 'timerInfo',
+  name: "timerInfo",
   initialState,
   reducers: {
     setWorkoutValues: (state, action: PayloadAction<TimerState>) => {
@@ -28,7 +28,7 @@ export const timerSlice = createSlice({
   },
 });
 
-export const {setWorkoutValues} = timerSlice.actions;
+export const { setWorkoutValues } = timerSlice.actions;
 
 // export const selectCount = (state: RootState) => state.counter.value;
 

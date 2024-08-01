@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
-import MainTime from './MainTime';
-import {useAppSelector} from '../../hooks';
+import React, { useEffect, useState } from "react";
+import { Button, StyleSheet, Text, View } from "react-native";
+import MainTime from "./MainTime";
+import { useAppSelector } from "../../hooks";
+import IncrementTime from "./IncrementTime";
 
 // import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 
@@ -25,12 +26,12 @@ function Timer3UI() {
   //   settingUpTimingInterval(props),
   // );
 
-  const timerDataState = useAppSelector(state => state.timerInfo);
+  const timerDataState = useAppSelector((state) => state.timerInfo);
 
   const [timeArray, setTimeArray] = useState<(string | number)[][]>([]);
-  const [currentAction, setCurrentAction] = useState<string>('rest');
+  const [currentAction, setCurrentAction] = useState<string>("rest");
   const [currActTime, setCurrActTime] = useState<number>(
-    Number(timerDataState.delayStartTime),
+    Number(timerDataState.delayStartTime)
   );
   const [isPaused, setIsPaused] = useState(true);
   // console.log(timeArray);
@@ -41,18 +42,18 @@ function Timer3UI() {
   function settingUpTimingInterval(obj: Timer3UIInt) {
     const finalArray = [];
 
-    finalArray.push(['rest', obj.delayStartTime]); //starting interval means that second delay needs to be accounted for
+    finalArray.push(["rest", obj.delayStartTime]); //starting interval means that second delay needs to be accounted for
     for (let j = obj.repCount; j > 0; j--) {
       for (let i = obj.setCount; i > 0; i--) {
         if (i > 1) {
-          finalArray.push(['hang', obj.hangTime]);
-          finalArray.push(['off', obj.offTime]);
+          finalArray.push(["hang", obj.hangTime]);
+          finalArray.push(["off", obj.offTime]);
         } else {
-          finalArray.push(['hang', obj.hangTime]);
+          finalArray.push(["hang", obj.hangTime]);
         }
       }
       if (j > 1) {
-        finalArray.push(['rest', obj.restTime]);
+        finalArray.push(["rest", obj.restTime]);
       }
     }
     // console.log(finalArray);
@@ -103,41 +104,55 @@ function Timer3UI() {
 
   return (
     <>
-      <MainTime number={currActTime} />
-      <View style={styles.container}>
-        <Text style={styles.items}>
-          Hang:{' '}
-          {currentAction === 'hang' ? currActTime : timerDataState.hangTime}
-        </Text>
-        <Text style={styles.items}>
-          Off: {currentAction === 'off' ? currActTime : timerDataState.offTime}
-        </Text>
-        <Text style={styles.items}>
-          Rest:{' '}
-          {currentAction === 'rest' ? currActTime : timerDataState.restTime}
-        </Text>
-      </View>
       <Button
         title="Start"
         onPress={() => {
           setIsPaused(!isPaused);
         }}
       />
+      <MainTime number={currActTime} curAct={currentAction} />
+      <View style={styles.container}>
+        {/* <Text style={styles.items}>
+          Hang:{" "}
+          {currentAction === "hang" ? currActTime : timerDataState.hangTime}
+        </Text>
+        <Text style={styles.items}>
+          Off: {currentAction === "off" ? currActTime : timerDataState.offTime}
+        </Text>
+        <Text style={styles.items}>
+          Rest:{" "}
+          {currentAction === "rest" ? currActTime : timerDataState.restTime}
+        </Text> */}
+        <IncrementTime
+          action={"hang"}
+          currentAct={currentAction}
+          actionTime={currActTime}
+          timerState={timerDataState.hangTime}
+        />
+        <IncrementTime
+          action={"off"}
+          currentAct={currentAction}
+          actionTime={currActTime}
+          timerState={timerDataState.hangTime}
+        />
+        <IncrementTime
+          action={"rest"}
+          currentAct={currentAction}
+          actionTime={currActTime}
+          timerState={timerDataState.hangTime}
+        />
+      </View>
     </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  items: {
-    width: 100,
-    textAlign: 'center',
+    height: "15%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
