@@ -133,13 +133,13 @@ function Timer3UI() {
           action={"off"}
           currentAct={currentAction}
           actionTime={currActTime}
-          timerState={timerDataState.hangTime}
+          timerState={timerDataState.offTime}
         />
         <IncrementTime
           action={"rest"}
           currentAct={currentAction}
           actionTime={currActTime}
-          timerState={timerDataState.hangTime}
+          timerState={timerDataState.restTime}
         />
       </View>
     </>

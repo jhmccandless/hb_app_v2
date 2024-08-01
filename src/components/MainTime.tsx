@@ -7,8 +7,6 @@ interface MainTimeInterface {
 }
 
 function MainTime(props: MainTimeInterface) {
-  console.log(props.curAct);
-
   return (
     <>
       <View style={styles(props.curAct).main_time_div}>
